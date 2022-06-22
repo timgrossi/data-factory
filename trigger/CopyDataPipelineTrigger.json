@@ -1,0 +1,25 @@
+{
+	"name": "CopyDataPipelineTrigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyDatatoRaw",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/adls/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/2ced2c9e-448c-441a-8168-3e6ced69a647/resourceGroups/NetworkWatcherRG/providers/Microsoft.Storage/storageAccounts/timdatastorage",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}

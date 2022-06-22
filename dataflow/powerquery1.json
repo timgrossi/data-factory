@@ -1,0 +1,28 @@
+{
+	"name": "powerquery1",
+	"properties": {
+		"type": "WranglingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"name": "CuratedDatasetProductTable",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> CuratedDatasetProductTable",
+					"dataset": {
+						"referenceName": "CuratedDatasetProductTable",
+						"type": "DatasetReference"
+					}
+				},
+				{
+					"name": "AzureSqlTable2",
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> AzureSqlTable2",
+					"dataset": {
+						"referenceName": "AzureSqlTable2",
+						"type": "DatasetReference"
+					}
+				}
+			],
+			"script": "section Section1;\r\nshared CuratedDatasetProductTable = let AdfDoc = AzureStorage.BlobContents(\"https://timdatastorage.blob.core.windows.net/adf/SalesLT.Customer.csv\"),Csv = Csv.Document(AdfDoc, [Delimiter = \",\", Encoding = TextEncoding.Utf8, QuoteStyle = QuoteStyle.Csv]), PromotedHeaders = Table.PromoteHeaders(Csv, [PromoteAllScalars = true]) in  PromotedHeaders;\r\nshared AzureSqlTable2 = let AdfDoc = Sql.Database(\"timsqlserver.database.windows.net\", \"TimSQL\", [CreateNavigationProperties = false]), InputTable = AdfDoc{[Schema=\"SalesLT\",Item=\"ProductCategory\"]}[Data] in InputTable;\r\nshared UserQuery = let Source = #\"CuratedDatasetProductTable\" in Source;\r\n",
+			"documentLocale": "en-us"
+		}
+	}
+}

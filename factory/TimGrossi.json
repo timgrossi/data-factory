@@ -1,0 +1,9 @@
+{
+	"name": "TimGrossi",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "137ed234-dfe3-497f-8aef-e3d8004e9c65",
+		"tenantId": "ea59f58a-4086-4f02-8424-4def0907c008"
+	}
+}

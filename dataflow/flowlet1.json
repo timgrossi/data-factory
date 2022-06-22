@@ -1,0 +1,30 @@
+{
+	"name": "flowlet1",
+	"properties": {
+		"folder": {
+			"name": "ADF"
+		},
+		"type": "Flowlet",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "empinput"
+				},
+				{
+					"name": "output1"
+				}
+			],
+			"scriptLines": [
+				"input(output(",
+				"          Name as string,",
+				"          id as integer,",
+				"          Address as string",
+				"     ),",
+				"     order: 0) ~> empinput",
+				"empinput output() ~> output1"
+			]
+		}
+	}
+}
