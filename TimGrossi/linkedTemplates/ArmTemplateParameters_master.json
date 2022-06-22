@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "TimGrossi"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabase_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"CosmosDb1_connectionString": {
+			"value": ""
+		},
+		"CosmosDb2_connectionString": {
+			"value": ""
+		},
+		"SDatabricks_accessToken": {
+			"value": ""
+		},
+		"TimAzureDatabricks_accessToken": {
+			"value": ""
+		},
+		"ZSQLSERVER_connectionString": {
+			"value": ""
+		},
+		"CosmosDb3_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://zgenlakestorage.dfs.core.windows.net/"
+		},
+		"CopyDataPipelineTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/2ced2c9e-448c-441a-8168-3e6ced69a647/resourceGroups/NetworkWatcherRG/providers/Microsoft.Storage/storageAccounts/timdatastorage"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
